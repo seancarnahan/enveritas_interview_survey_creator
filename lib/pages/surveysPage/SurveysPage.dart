@@ -5,16 +5,20 @@ import 'package:interview_survey_creator/widgets/scaffold/EnvScaffold.dart';
 import 'widgets/Searchbar.dart';
 import 'widgets/SurveyTiles.dart';
 
-class SurveyPage extends StatelessWidget {
-  const SurveyPage({Key? key}) : super(key: key);
+class SurveysPage extends StatelessWidget {
+  const SurveysPage({Key? key}) : super(key: key);
+
+  static const routeName = '/surveys';
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       body: EnvScaffold(
         topRightAction: GestureDetector(
-          onTap: () => print('Create New Survey'),
+          onTap: () => {
+            // open modal to get survey name and exportable languages
+            // then route to Page
+          },
           child: const Icon(
             Icons.add,
             size: 32,

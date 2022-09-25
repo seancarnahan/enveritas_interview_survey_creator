@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interview_survey_creator/mock/MockSurveys.dart';
-import 'package:interview_survey_creator/pages/surveyPage/widgets/SurveyTile.dart';
+import 'package:interview_survey_creator/pages/surveysPage/widgets/SurveyTile.dart';
 
 class SurveyTiles extends StatelessWidget {
   const SurveyTiles({Key? key}) : super(key: key);

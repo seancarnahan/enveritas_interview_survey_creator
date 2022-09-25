@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:interview_survey_creator/pages/surveyQuestionCreatorPage/SurveyQuestionCreatorPage.dart';
+import 'package:interview_survey_creator/pages/surveyQuestionsPage/SurveyQuestionsPage.dart';
 import 'package:interview_survey_creator/styles/BrandedColors.dart';
 
-import 'pages/surveyPage/SurveyPage.dart';
+import 'pages/surveysPage/SurveysPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +22,12 @@ class MyApp extends StatelessWidget {
         canvasColor: BrandedColors.white500,
         fontFamily: 'HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif',
       ),
-      home: const SurveyPage(),
+      initialRoute: '/surveys',
+      routes: {
+        SurveysPage.routeName: (context) => const SurveysPage(),
+        SurveyQuestionsPage.routeName: (context) => const SurveyQuestionsPage(),
+        SurveyQuestionCreatorPage.routeName: (context) => const SurveyQuestionCreatorPage(),
+      },
     );
   }
 }

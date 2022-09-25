@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:interview_survey_creator/services/NavigationService.dart';
 import 'package:interview_survey_creator/styles/BrandedColors.dart';
 import 'package:interview_survey_creator/constants/DesktopContstraints.dart';
 
 class EnvScaffold extends StatelessWidget {
   final Widget pageContent;
+  final bool hasBackArrow;
   final Widget? topRightAction;
   const EnvScaffold({
     Key? key,
     required this.pageContent,
+    this.hasBackArrow=false,
     this.topRightAction
   }) : super(key: key);
 
@@ -18,13 +21,25 @@ class EnvScaffold extends StatelessWidget {
         appBar: AppBar(
           toolbarHeight: 80,
           elevation: 0,
+          leadingWidth: 0,
           backgroundColor: BrandedColors.white500,
-          leading: Transform.scale(
-            scale: 3,
-            child: const Padding(
-              padding: EdgeInsets.only(left: 27),
-              child:  Image(image: AssetImage('assets/Enveritas.png'))
-            ),
+          title: Padding(
+            padding: const EdgeInsets.only(left: 12),
+            child: Row(
+              children: [
+                Visibility(
+                  visible: hasBackArrow,
+                  child: GestureDetector(
+                    onTap: () => NavigationService.navigateBack(context),
+                    child: const Padding(
+                      padding: EdgeInsets.only(right: 8),
+                      child: Icon(Icons.arrow_back, size: 24, color: BrandedColors.primary500),
+                    ),
+                  )
+                ),
+                const Image(image: AssetImage('assets/Enveritas.png'))
+              ],
+            )
           ),
           actions: [
             Visibility(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:interview_survey_creator/constants/DesktopContstraints.dart';
 import 'package:interview_survey_creator/models/Survey.dart';
+import 'package:interview_survey_creator/services/NavigationService.dart';
 import 'package:interview_survey_creator/styles/BrandedColors.dart';
 import 'package:interview_survey_creator/styles/BrandedTextStyle.dart';
 import 'package:interview_survey_creator/widgets/cards/EnvCard.dart';
@@ -22,7 +23,7 @@ class SurveyTile extends StatelessWidget {
     return EnvCard(
       minHeight: 75,
       onTap: () {
-        print('object');
+        NavigationService.navigateToSurveyQuestionsPage(context, survey);
       },
       content: Padding(
         padding: const EdgeInsets.all(16),
