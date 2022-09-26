@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:interview_survey_creator/models/Survey.dart';
-import 'package:interview_survey_creator/pages/surveyQuestionsPage/widgets/SurveyQuestionsHeaderCard.dart';
 import 'package:interview_survey_creator/widgets/scaffold/EnvScaffold.dart';
 
 import 'models/SurveyQuestionsPageArgs.dart';
+import 'widgets/SurveyQuestionsActionControls.dart';
+import 'widgets/SurveyQuestionsHeaderCard.dart';
 
 class SurveyQuestionsPage extends StatelessWidget {
   const SurveyQuestionsPage({Key? key}) : super(key: key);
@@ -20,7 +21,9 @@ class SurveyQuestionsPage extends StatelessWidget {
         hasBackArrow: true,
         pageContent: Column(
           children: [
-            SurveyQuestionsHeaderCard(survey: survey)
+            SurveyQuestionsHeaderCard(survey: survey),
+            const SizedBox(height: 32),
+            SurveyQuestionsActionControls(survey: survey)
           ],
         ),
       ),
