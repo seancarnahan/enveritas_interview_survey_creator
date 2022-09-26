@@ -62,7 +62,12 @@ class EnvScaffold extends StatelessWidget {
                     maxWidth: DeskTopMaxWidth,
                     maxHeight: double.infinity
                   ),
-                  child: pageContent
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 12),
+                      pageContent
+                    ],
+                  )
                 )
               ],
             ),
