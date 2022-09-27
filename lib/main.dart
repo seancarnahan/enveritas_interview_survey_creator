@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:interview_survey_creator/pages/surveyQuestionCreatorPage/SurveyQuestionCreatorPage.dart';
 import 'package:interview_survey_creator/pages/surveyQuestionsEditPage/SurveyQuestionsEditPage.dart';
 import 'package:interview_survey_creator/pages/surveyQuestionsPage/SurveyQuestionsPage.dart';
@@ -26,8 +27,20 @@ class MyApp extends StatelessWidget {
       routes: {
         SurveysPage.routeName: (context) => const SurveysPage(),
         SurveyQuestionsPage.routeName: (context) => const SurveyQuestionsPage(),
-        SurveyQuestionsEditPage.routeName: (context) => const SurveyQuestionsEditPage(),
         SurveyQuestionCreatorPage.routeName: (context) => const SurveyQuestionCreatorPage(),
+      },
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case SurveyQuestionsEditPage.routeName:
+            // Change Page Transition Animation to be similar to Modal
+            return PageTransition(
+              child: const SurveyQuestionsEditPage(),
+              type: PageTransitionType.bottomToTop,
+              settings: settings
+            );
+          default:
+            return null;
+        }
       },
     );
   }
