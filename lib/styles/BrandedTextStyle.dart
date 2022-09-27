@@ -20,7 +20,16 @@ class BrandedTextStyle {
     );
   }
 
-  static TextStyle b2Label(Color color) {
+  static TextStyle b2Reg(Color color) {
+    return TextStyle(
+      fontStyle: FontStyle.normal,
+      fontWeight: FontWeight.normal,
+      fontSize: 24,
+      color: color
+    );
+  }
+
+  static TextStyle b3Label(Color color) {
     return TextStyle(
       fontStyle: FontStyle.normal,
       fontWeight: FontWeight.normal,
@@ -29,7 +38,7 @@ class BrandedTextStyle {
     );
   }
 
-  static TextStyle b2LabelBold(Color color) {
+  static TextStyle b3LabelBold(Color color) {
     return TextStyle(
       fontStyle: FontStyle.normal,
       fontWeight: FontWeight.bold,
@@ -38,7 +47,7 @@ class BrandedTextStyle {
     );
   }
 
-  static TextStyle b3Legal(Color color) {
+  static TextStyle b4Legal(Color color) {
     return TextStyle(
       fontStyle: FontStyle.normal,
       fontWeight: FontWeight.normal,

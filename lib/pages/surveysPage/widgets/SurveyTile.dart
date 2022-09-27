@@ -17,7 +17,7 @@ class SurveyTile extends StatelessWidget {
     String languages = survey.languages.join(', ');
     bool isMobile = MediaQuery.of(context).size.width < MobileBreakpoint;
     Color nameColor = BrandedColors.primary500;
-    TextStyle nameStyle = isMobile ? BrandedTextStyle.b2Label(nameColor)
+    TextStyle nameStyle = isMobile ? BrandedTextStyle.b3Label(nameColor)
       : BrandedTextStyle.b1Reg(nameColor);
 
     return EnvCard(
@@ -34,11 +34,11 @@ class SurveyTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(name, style: nameStyle),
-                Text(numQuestions, style: BrandedTextStyle.b2LabelBold(BrandedColors.black500)),
+                Text(numQuestions, style: BrandedTextStyle.b3LabelBold(BrandedColors.black500)),
               ],
             ),
             const SizedBox(height: 8),
-            Text(languages, style: BrandedTextStyle.b3Legal(BrandedColors.gray500)),
+            Text(languages, style: BrandedTextStyle.b4Legal(BrandedColors.gray500)),
           ],
         ),
       )

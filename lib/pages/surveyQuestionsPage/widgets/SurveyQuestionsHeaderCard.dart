@@ -28,8 +28,8 @@ class SurveyQuestionsHeaderCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(languages, style: BrandedTextStyle.b3Legal(BrandedColors.gray500)),
-                Text(numQuestions, style: BrandedTextStyle.b2LabelBold(BrandedColors.black500)),
+                Text(languages, style: BrandedTextStyle.b4Legal(BrandedColors.gray500)),
+                Text(numQuestions, style: BrandedTextStyle.b3LabelBold(BrandedColors.black500)),
               ],
             )
           ],

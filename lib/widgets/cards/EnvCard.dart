@@ -12,6 +12,7 @@ class EnvCard extends StatelessWidget {
   final bool hasBorder;
   final bool useAuto; // overrides width
   final double borderRadius;
+  final double borderWidth;
   final void Function()? onTap;
   const EnvCard({
     Key? key,
@@ -25,6 +26,7 @@ class EnvCard extends StatelessWidget {
     this.hasBorder=true,
     this.useAuto=false,
     this.borderRadius=8.0,
+    this.borderWidth=1.0,
     this.onTap
   }) : super(key: key);
 
@@ -45,7 +47,7 @@ class EnvCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius),
           side: BorderSide(
             style: hasBorder ? BorderStyle.solid : BorderStyle.none,
-            width: 1.0,
+            width: borderWidth,
             color: borderColor
           )
         ),

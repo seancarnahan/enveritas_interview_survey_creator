@@ -16,7 +16,7 @@ class EnvTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle inputStyle = config.inputTextStyle ?? BrandedTextStyle.b2Label(BrandedColors.black500);
+    TextStyle inputStyle = config.inputTextStyle ?? BrandedTextStyle.b3Label(BrandedColors.black500);
     return TextFormField(
       onChanged: onChanged,
       initialValue: config.initialText,
