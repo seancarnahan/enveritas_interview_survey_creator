@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:interview_survey_creator/constants/DesktopContstraints.dart';
 import 'package:interview_survey_creator/models/Survey.dart';
+import 'package:interview_survey_creator/models/SurveyQuestionable.dart';
+import 'package:interview_survey_creator/models/SurveyQuestionType.dart';
 import 'package:interview_survey_creator/pages/surveyQuestionsPage/widgets/SurveyQuestionsActionControl.dart';
 import 'package:interview_survey_creator/services/NavigationService.dart';
 import 'package:interview_survey_creator/styles/BrandedColors.dart';
 
 class SurveyQuestionsActionControls extends StatelessWidget {
   final Survey survey;
-  const  SurveyQuestionsActionControls({Key? key, required this.survey}) : super(key: key);
+  const SurveyQuestionsActionControls({Key? key, required this.survey}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,19 +33,20 @@ class SurveyQuestionsActionControls extends StatelessWidget {
               icon: Icons.edit,
               text: 'Edit',
               onTap: () {
-                NavigationService.navigateToSurveyQuestionsEditPage(context, survey);
+                NavigationService.navigateToSurveyQuestionsEditPage(context);
               },
             ),
           ],
         ),
         GestureDetector(
           child: Icon(
-            Icons.import_export,
+            Icons.add,
             size: iconSize,
-            color: BrandedColors.primary500
+            color: BrandedColors.black500,
           ),
           onTap: () {
             // TODO export modal
+            NavigationService.navigateToSurveyQuestionCreatorPage(context);
           },
         )
       ],

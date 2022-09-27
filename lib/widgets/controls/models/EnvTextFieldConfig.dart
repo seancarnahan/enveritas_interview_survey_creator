@@ -10,7 +10,7 @@ class EnvTextFieldConfig {
   final String initialText;
   final String hintText;
   final TextStyle? inputTextStyle;
-  final TextInputFormatter? additionalFormatter;
+  final List<TextInputFormatter>? additionalFormatter;
   
   EnvTextFieldConfig({
     this.prefix,

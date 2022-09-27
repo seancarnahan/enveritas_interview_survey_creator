@@ -31,10 +31,11 @@ class EnvTextField extends StatelessWidget {
       decoration: InputDecoration(
         filled: true,
         fillColor: BrandedColors.secondary500,
-        prefixIcon: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: config.prefix,
-        ),
+        prefixIcon: config.prefix != null ?
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: config.prefix,
+          ) : null,
         counterText: '',
         hintText: config.hintText,
         hintStyle: inputStyle,

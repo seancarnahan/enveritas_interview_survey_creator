@@ -5,10 +5,10 @@ import 'package:flutter/services.dart';
 class KeyboardService {
  List< TextInputFormatter> filteringTextInputFormatters;
 
-  KeyboardService(KeyboardType keyboardType, [TextInputFormatter? additionalFormatter])
+  KeyboardService(KeyboardType keyboardType, [List<TextInputFormatter>? additionalFormatter])
     : filteringTextInputFormatters = getInputFormatters(keyboardType, additionalFormatter);
 
-  static List<TextInputFormatter> getInputFormatters(KeyboardType keyboardType, [TextInputFormatter? additionalFormatter]) {
+  static List<TextInputFormatter> getInputFormatters(KeyboardType keyboardType, [List<TextInputFormatter>? additionalFormatter]) {
     List<TextInputFormatter> inputFormatters;
     switch (keyboardType) {
       case KeyboardType.numbers:
@@ -20,12 +20,15 @@ class KeyboardService {
       case KeyboardType.charsAndNumbersAndSpaces:
         inputFormatters = [FilteringTextInputFormatter.allow(RegExp('[0-9a-zA-Z\ ]'))];
         break;
+      case KeyboardType.noRestrictions:
+        inputFormatters = [];
+        break;
       default:
         inputFormatters = [FilteringTextInputFormatter.allow(RegExp('[0-9a-zA-Z\ ]'))];
         throw('Provided an invalid keyboard type that cannot be handled');
     }
     if (additionalFormatter != null) {
-      inputFormatters.add(additionalFormatter);
+      inputFormatters = List.from(inputFormatters)..addAll(additionalFormatter);
     }
     return inputFormatters;
   }
@@ -34,5 +37,6 @@ class KeyboardService {
 enum KeyboardType {
   chars,
   numbers,
-  charsAndNumbersAndSpaces
+  charsAndNumbersAndSpaces,
+  noRestrictions
 }

@@ -1,16 +1,15 @@
 # interview_survey_creator
 
-A new Flutter project.
+This project is tool created for an interview with Enveritas that allows users to Create, Edit, and Export custom Surveys.
+
+Figma: https://www.figma.com/file/U7A2Kq0J7y7i7dz8E7dpAp/Enveritas---interview_survey_creator?node-id=0%3A1
 
 ## Getting Started
+- Runs on broswers, ios, and android
+- "flutter run" from root of App
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Disclaimers
+- Used styling and assets from https://enveritas.org
+- Used a mobile first approach (PageTransitions and Modals need to be customized for Desktop Still)
+- Added features outside the Interview Prompt, but most arent fully realized yet(i.e. Search, Export, Preview)
+- State Management: Primarily would use https://pub.dev/packages/provider and would eventually want to use in combination with https://pub.dev/packages/flutter_bloc. However, I thought a statemanager might be overkill for now, so am passing most of the data manually.

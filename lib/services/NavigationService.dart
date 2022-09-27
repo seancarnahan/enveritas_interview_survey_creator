@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:interview_survey_creator/models/Survey.dart';
+import 'package:interview_survey_creator/pages/surveyQuestionCreatorPage/SurveyQuestionCreatorPage.dart';
 import 'package:interview_survey_creator/pages/surveyQuestionsEditPage/SurveyQuestionsEditPage.dart';
-import 'package:interview_survey_creator/pages/surveyQuestionsEditPage/models/SurveyQuestionsEditPageArgs.dart';
 import 'package:interview_survey_creator/pages/surveyQuestionsPage/SurveyQuestionsPage.dart';
-import 'package:interview_survey_creator/pages/surveyQuestionsPage/models/SurveyQuestionsPageArgs.dart';
 
 class NavigationService {
 
@@ -11,19 +9,24 @@ class NavigationService {
     Navigator.pushNamed(context, route);
   }
 
-  static void navigateToSurveyQuestionsPage(BuildContext context, Survey survey) {
+  static void navigateToSurveyQuestionsPage(BuildContext context) {
     Navigator.pushNamed(
       context,
       SurveyQuestionsPage.routeName,
-      arguments: SurveyQuestionsPageArgs(survey),
     );
   }
 
-  static void navigateToSurveyQuestionsEditPage(BuildContext context, Survey survey) {
+  static void navigateToSurveyQuestionsEditPage(BuildContext context) {
     Navigator.pushNamed(
       context,
       SurveyQuestionsEditPage.routeName,
-      arguments: SurveyQuestionsEditPageArgs(survey),
+    );
+  }
+
+  static void navigateToSurveyQuestionCreatorPage(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      SurveyQuestionCreatorPage.routeName,
     );
   }
 
