@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:interview_survey_creator/models/Survey.dart';
 import 'package:interview_survey_creator/styles/BrandedColors.dart';
 import 'package:interview_survey_creator/widgets/scaffold/EnvScaffold.dart';
 import 'package:interview_survey_creator/widgets/scaffold/models/ScaffoldActionIcons.dart';
+import 'package:interview_survey_creator/widgets/shared/SurveyNoQuestions.dart';
 
 import 'models/SurveyQuestionsEditPageArgs.dart';
 
@@ -16,6 +18,8 @@ class SurveyQuestionsEditPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as SurveyQuestionsEditPageArgs;
+    final Survey survey = args.survey;
+    Widget questionsWidget = survey.questions.isEmpty ? const SurveyNoQuestions() : Text('TODO Draggable questions');
 
     return EnvScaffold(
       topLeftActionIcon: ScaffoldActionsIcons.Exit,
@@ -30,11 +34,7 @@ class SurveyQuestionsEditPage extends StatelessWidget {
           color: BrandedColors.black500,
         ),
       ),
-      pageContent: Column(
-        children: [
-          Text('data')
-        ],
-      ),
+      pageContent: questionsWidget,
     );
   }
 }
