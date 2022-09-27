@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:interview_survey_creator/constants/DesktopContstraints.dart';
 import 'package:interview_survey_creator/models/Survey.dart';
 import 'package:interview_survey_creator/pages/surveyQuestionsPage/widgets/SurveyQuestionsActionControl.dart';
+import 'package:interview_survey_creator/services/NavigationService.dart';
 import 'package:interview_survey_creator/styles/BrandedColors.dart';
 
 class SurveyQuestionsActionControls extends StatelessWidget {
@@ -30,7 +31,7 @@ class SurveyQuestionsActionControls extends StatelessWidget {
               icon: Icons.edit,
               text: 'Edit',
               onTap: () {
-                // TODO: Trigger edit functionality
+                NavigationService.navigateToSurveyQuestionsEditPage(context, survey);
               },
             ),
           ],

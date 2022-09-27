@@ -8,7 +8,7 @@ import 'widgets/SurveyTiles.dart';
 class SurveysPage extends StatelessWidget {
   const SurveysPage({Key? key}) : super(key: key);
 
-  static const routeName = '/surveys';
+  static const routeName = '/';
 
   @override
   Widget build(BuildContext context) {
