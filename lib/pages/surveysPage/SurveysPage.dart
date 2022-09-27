@@ -12,26 +12,24 @@ class SurveysPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: EnvScaffold(
-        topRightAction: GestureDetector(
-          onTap: () => {
-            // open modal to get survey name and exportable languages
-            // then route to Page
-          },
-          child: const Icon(
-            Icons.add,
-            size: 32,
-            color: BrandedColors.black500,
-          ),
+    return EnvScaffold(
+      topRightAction: GestureDetector(
+        onTap: () => {
+          // TODO open modal to get survey name and exportable languages
+          // then route to Page
+        },
+        child: const Icon(
+          Icons.add,
+          size: 32,
+          color: BrandedColors.black500,
         ),
-        pageContent: Column(
-          children: const [
-            Searchbar(),
-            SizedBox(height: 32),
-            SurveyTiles()
-          ],
-        ),
+      ),
+      pageContent: Column(
+        children: const [
+          Searchbar(),
+          SizedBox(height: 32),
+          SurveyTiles()
+        ],
       ),
     );
   }

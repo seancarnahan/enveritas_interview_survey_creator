@@ -9,6 +9,7 @@ class Searchbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: implement search functionality
     return EnvTextField(
       config: EnvTextFieldConfig(
         prefix: const Icon(Icons.search, size: 32, color: BrandedColors.primary500),

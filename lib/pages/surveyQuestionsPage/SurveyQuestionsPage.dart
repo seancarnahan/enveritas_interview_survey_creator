@@ -17,16 +17,14 @@ class SurveyQuestionsPage extends StatelessWidget {
     final args = ModalRoute.of(context)!.settings.arguments as SurveyQuestionsPageArgs;
     final Survey survey = args.survey;
 
-    return Scaffold(
-      body: EnvScaffold(
-        topLeftActionIcon: ScaffoldActionsIcons.BackArrow,
-        pageContent: Column(
-          children: [
-            SurveyQuestionsHeaderCard(survey: survey),
-            const SizedBox(height: 32),
-            SurveyQuestionsActionControls(survey: survey)
-          ],
-        ),
+    return EnvScaffold(
+      topLeftActionIcon: ScaffoldActionsIcons.BackArrow,
+      pageContent: Column(
+        children: [
+          SurveyQuestionsHeaderCard(survey: survey),
+          const SizedBox(height: 32),
+          SurveyQuestionsActionControls(survey: survey)
+        ],
       ),
     );
   }

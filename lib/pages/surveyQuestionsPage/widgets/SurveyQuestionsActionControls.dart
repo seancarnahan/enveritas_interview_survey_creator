@@ -7,7 +7,7 @@ import 'package:interview_survey_creator/styles/BrandedColors.dart';
 
 class SurveyQuestionsActionControls extends StatelessWidget {
   final Survey survey;
-  const SurveyQuestionsActionControls({Key? key, required this.survey}) : super(key: key);
+  const  SurveyQuestionsActionControls({Key? key, required this.survey}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -32,7 +32,8 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case SurveyQuestionsEditPage.routeName:
-            // Change Page Transition Animation to be similar to Modal
+            // Changes Page Transition Animation to be similar to Modal
+            // TODO: Change Page Transitions to be less mobile like for Desktop
             return PageTransition(
               child: const SurveyQuestionsEditPage(),
               type: PageTransitionType.bottomToTop,
