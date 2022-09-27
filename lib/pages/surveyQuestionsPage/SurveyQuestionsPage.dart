@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:interview_survey_creator/models/Survey.dart';
 import 'package:interview_survey_creator/widgets/scaffold/EnvScaffold.dart';
+import 'package:interview_survey_creator/widgets/scaffold/models/ScaffoldActionIcons.dart';
 
 import 'models/SurveyQuestionsPageArgs.dart';
 import 'widgets/SurveyQuestionsActionControls.dart';
@@ -18,7 +19,7 @@ class SurveyQuestionsPage extends StatelessWidget {
 
     return Scaffold(
       body: EnvScaffold(
-        hasBackArrow: true,
+        topLeftActionIcon: ScaffoldActionsIcons.BackArrow,
         pageContent: Column(
           children: [
             SurveyQuestionsHeaderCard(survey: survey),

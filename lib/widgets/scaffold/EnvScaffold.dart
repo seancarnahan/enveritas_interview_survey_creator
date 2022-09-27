@@ -3,19 +3,33 @@ import 'package:interview_survey_creator/services/NavigationService.dart';
 import 'package:interview_survey_creator/styles/BrandedColors.dart';
 import 'package:interview_survey_creator/constants/DesktopContstraints.dart';
 
+import 'models/ScaffoldActionIcons.dart';
+
 class EnvScaffold extends StatelessWidget {
   final Widget pageContent;
-  final bool hasBackArrow;
+  final ScaffoldActionsIcons? topLeftActionIcon;
   final Widget? topRightAction;
   const EnvScaffold({
     Key? key,
     required this.pageContent,
-    this.hasBackArrow=false,
+    this.topLeftActionIcon,
     this.topRightAction
   }) : super(key: key);
 
+  IconData getActionIcon() {
+    switch (topLeftActionIcon) {
+      case ScaffoldActionsIcons.BackArrow:
+        return Icons.arrow_back;
+      case ScaffoldActionsIcons.Exit:
+        return Icons.clear;
+      default:
+        return Icons.arrow_back;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    IconData leftActionIcon = getActionIcon();
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -28,12 +42,16 @@ class EnvScaffold extends StatelessWidget {
             child: Row(
               children: [
                 Visibility(
-                  visible: hasBackArrow,
+                  visible: topLeftActionIcon != null,
                   child: GestureDetector(
                     onTap: () => NavigationService.navigateBack(context),
-                    child: const Padding(
-                      padding: EdgeInsets.only(right: 8),
-                      child: Icon(Icons.arrow_back, size: 24, color: BrandedColors.primary500),
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: Icon(
+                        leftActionIcon,
+                        size: 24,
+                        color: BrandedColors.primary500
+                      ),
                     ),
                   )
                 ),

@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:interview_survey_creator/widgets/scaffold/EnvScaffold.dart';
+import 'package:interview_survey_creator/widgets/scaffold/models/ScaffoldActionIcons.dart';
+
+import 'models/SurveyQuestionsEditPageArgs.dart';
+
 
 class SurveyQuestionsEditPage extends StatelessWidget {
   const SurveyQuestionsEditPage({Key? key}) : super(key: key);
@@ -7,6 +12,17 @@ class SurveyQuestionsEditPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('');
+    final args = ModalRoute.of(context)!.settings.arguments as SurveyQuestionsEditPageArgs;
+
+    return Scaffold(
+      body: EnvScaffold(
+        topLeftActionIcon: ScaffoldActionsIcons.Exit,
+        pageContent: Column(
+          children: [
+            Text('data')
+          ],
+        ),
+      ),
+    );
   }
 }
