@@ -1,5 +1,6 @@
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
+import 'package:interview_survey_creator/widgets/button/EnvGestureDetector.dart';
 import 'package:interview_survey_creator/widgets/button/EnvButton.dart';
 import 'package:interview_survey_creator/services/KeyboardService.dart';
 import 'package:interview_survey_creator/styles/BrandedColors.dart';
@@ -27,7 +28,7 @@ class SurveyQuestionCreatorPage extends StatelessWidget {
     return ChangeNotifierProvider<QuestionCreatorProvider>(
       create: (context) => QuestionCreatorProvider(),
       child: EnvScaffold(
-        topRightAction: GestureDetector(
+        topRightAction: EnvGestureDetector(
           onTap: () => NavigationService.navigateBack(context),
           child: const Padding(
             padding: EdgeInsets.only(right: 8),

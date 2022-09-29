@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interview_survey_creator/constants/DesktopContstraints.dart';
+import 'package:interview_survey_creator/widgets/button/EnvGestureDetector.dart';
 import 'package:interview_survey_creator/models/Survey.dart';
 import 'package:interview_survey_creator/pages/surveyQuestionsPage/widgets/SurveyQuestionsActionControl.dart';
 import 'package:interview_survey_creator/services/NavigationService.dart';
@@ -36,7 +37,7 @@ class SurveyQuestionsActionControls extends StatelessWidget {
             ),
           ],
         ),
-        GestureDetector(
+        EnvGestureDetector(
           child: Icon(
             Icons.add,
             size: iconSize,

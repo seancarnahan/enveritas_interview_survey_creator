@@ -4,6 +4,7 @@ import 'package:interview_survey_creator/pages/surveyQuestionCreatorPage/provide
 import 'package:interview_survey_creator/pages/surveyQuestionCreatorPage/widgets/PreviewQuestionContainer.dart';
 import 'package:interview_survey_creator/services/KeyboardService.dart';
 import 'package:interview_survey_creator/styles/BrandedColors.dart';
+import 'package:interview_survey_creator/widgets/button/EnvGestureDetector.dart';
 import 'package:interview_survey_creator/widgets/controls/EnvRadioButtonController.dart';
 import 'package:interview_survey_creator/widgets/controls/EnvTextField.dart';
 import 'package:interview_survey_creator/widgets/controls/models/EnvRadioButtonConfig.dart';
@@ -42,7 +43,7 @@ class SurveyQuestionMultipleChoice implements SurveyQuestionable {
         const SizedBox(height: 24),
         Row(
           children: [
-            GestureDetector(
+            EnvGestureDetector(
               child: const Icon(
                 Icons.add,
                 size: 32,
@@ -57,7 +58,7 @@ class SurveyQuestionMultipleChoice implements SurveyQuestionable {
             const SizedBox(width: 24),
             Visibility(
               visible: numOptions > 1,
-              child: GestureDetector(
+              child: EnvGestureDetector(
                 child: const Icon(
                   Icons.horizontal_rule_rounded,
                   size: 32,

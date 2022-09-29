@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interview_survey_creator/models/Survey.dart';
+import 'package:interview_survey_creator/widgets/button/EnvGestureDetector.dart';
 import 'package:interview_survey_creator/services/NavigationService.dart';
 import 'package:interview_survey_creator/providers/SurveyProvider.dart';
 import 'package:interview_survey_creator/styles/BrandedColors.dart';
@@ -23,7 +24,7 @@ class SurveyQuestionsEditPage extends StatelessWidget {
     Widget questionsWidget = survey.questions.isEmpty ? const SurveyNoQuestions() : Text('TODO Draggable questions');
 
     return EnvScaffold(
-      topRightAction: GestureDetector(
+      topRightAction: EnvGestureDetector(
         onTap: () => NavigationService.navigateBack(context),
         child: const Padding(
           padding: EdgeInsets.only(right: 8),

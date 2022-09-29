@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:interview_survey_creator/styles/BrandedColors.dart';
 import 'package:interview_survey_creator/widgets/scaffold/EnvScaffold.dart';
+import 'package:interview_survey_creator/widgets/button/EnvGestureDetector.dart';
 
 import 'widgets/Searchbar.dart';
 import 'widgets/SurveyTiles.dart';
@@ -13,7 +14,7 @@ class SurveysPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return EnvScaffold(
-      topRightAction: GestureDetector(
+      topRightAction: EnvGestureDetector(
         onTap: () => {
           // TODO open modal to get survey name and exportable languages
           // then route to Page

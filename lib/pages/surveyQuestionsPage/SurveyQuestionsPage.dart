@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:interview_survey_creator/widgets/button/EnvGestureDetector.dart';
 import 'package:interview_survey_creator/models/Survey.dart';
 import 'package:interview_survey_creator/services/NavigationService.dart';
 import 'package:interview_survey_creator/providers/SurveyProvider.dart';
@@ -28,7 +29,7 @@ class SurveyQuestionsPage extends StatelessWidget {
       value: SurveyProvider(),
       child: EnvScaffold(
         topLeftActionIcon: ScaffoldActionsIcons.BackArrow,
-        topRightAction: GestureDetector(
+        topRightAction: EnvGestureDetector(
           child: const Icon(
             Icons.import_export,
             size: 36,

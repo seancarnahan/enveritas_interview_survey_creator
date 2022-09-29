@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:interview_survey_creator/services/NavigationService.dart';
 import 'package:interview_survey_creator/styles/BrandedColors.dart';
 import 'package:interview_survey_creator/constants/DesktopContstraints.dart';
+import 'package:interview_survey_creator/widgets/button/EnvGestureDetector.dart';
 
 import 'models/ScaffoldActionIcons.dart';
 
@@ -43,7 +44,7 @@ class EnvScaffold extends StatelessWidget {
               children: [
                 Visibility(
                   visible: topLeftActionIcon != null,
-                  child: GestureDetector(
+                  child: EnvGestureDetector(
                     onTap: () => NavigationService.navigateBack(context),
                     child: Padding(
                       padding: const EdgeInsets.only(right: 8),
