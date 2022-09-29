@@ -32,7 +32,7 @@ class SurveyQuestionsPage extends StatelessWidget {
         topRightAction: EnvGestureDetector(
           child: const Icon(
             Icons.import_export,
-            size: 36,
+            size: 32,
             color: BrandedColors.primary500
           ),
           onTap: () {

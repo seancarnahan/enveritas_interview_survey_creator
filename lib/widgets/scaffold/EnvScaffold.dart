@@ -63,9 +63,17 @@ class EnvScaffold extends StatelessWidget {
           actions: [
             Visibility(
               visible: topRightAction != null,
-              child: topRightAction ?? const Icon(Icons.question_mark)
+              child: SizedBox(
+                height: 32,
+                width: 32,
+                child: Row(
+                  children: [
+                    topRightAction ?? const Icon(Icons.question_mark)
+                  ],
+                ),
+              )
             ),
-            const SizedBox(width: 24)
+            const SizedBox(width: 24, height: 32)
           ]
         ),
         body: SingleChildScrollView(

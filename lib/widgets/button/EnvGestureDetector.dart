@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:interview_survey_creator/styles/BrandedColors.dart';
 
 class EnvGestureDetector extends StatelessWidget {
   final VoidCallback onTap;
@@ -13,7 +14,8 @@ class EnvGestureDetector extends StatelessWidget {
   Widget build(BuildContext context) {
     return MouseRegion(
       cursor: SystemMouseCursors.click,
-      child: GestureDetector(
+      child: InkWell(
+        splashColor: BrandedColors.secondary500,
         onTap:() => onTap(),
         child: child,
       )

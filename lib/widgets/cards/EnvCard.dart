@@ -51,13 +51,13 @@ class EnvCard extends StatelessWidget {
             color: borderColor
           )
         ),
-        child: InkWell(
-          splashFactory: onTap != null ? null : NoSplash.splashFactory,
-          onTap: onTap != null ? () => { onTap!() } : () {},
-          splashColor: BrandedColors.secondary500,
-          highlightColor: onTap != null ? BrandedColors.secondary500 : Colors.transparent,
-          child: Container(child: content),
-        )
+        child: onTap == null ? Container(child: content)
+          : InkWell(
+              onTap: () => onTap!(),
+              splashColor: BrandedColors.secondary500,
+              highlightColor: BrandedColors.secondary500,
+              child: Container(child: content),
+            )
       ),
     );
   }

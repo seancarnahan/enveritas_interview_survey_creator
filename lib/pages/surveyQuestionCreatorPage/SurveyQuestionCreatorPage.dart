@@ -30,14 +30,11 @@ class SurveyQuestionCreatorPage extends StatelessWidget {
       child: EnvScaffold(
         topRightAction: EnvGestureDetector(
           onTap: () => NavigationService.navigateBack(context),
-          child: const Padding(
-            padding: EdgeInsets.only(right: 8),
-            child: Icon(
-              Icons.clear,
-              size: 32,
-              color: BrandedColors.primary500
-            ),
-          ),
+          child: const Icon(
+            Icons.clear,
+            size: 32,
+            color: BrandedColors.primary500
+          )
         ),
         pageContent: Consumer<QuestionCreatorProvider>(
           builder: (context, questionCreationProvider, child) {
