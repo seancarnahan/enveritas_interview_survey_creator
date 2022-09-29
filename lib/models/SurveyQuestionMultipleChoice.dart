@@ -40,18 +40,38 @@ class SurveyQuestionMultipleChoice implements SurveyQuestionable {
           itemBuilder: (context, index) => _getMultipleChoiceInput(index)
         ),
         const SizedBox(height: 24),
-        GestureDetector(
-          child: const Icon(
-            Icons.add,
-            size: 32,
-            color: BrandedColors.black500
-          ),
-          onTap: () {
-            numOptions += 1;
-            optionTitles.add('Answer Choice ${numOptions-1}...');
-            questionCreatorProvider.updateQuestion();
-          },
-        ),
+        Row(
+          children: [
+            GestureDetector(
+              child: const Icon(
+                Icons.add,
+                size: 32,
+                color: BrandedColors.black500
+              ),
+              onTap: () {
+                numOptions += 1;
+                optionTitles.add('Answer Choice ${numOptions-1}...');
+                questionCreatorProvider.updateQuestion();
+              },
+            ),
+            const SizedBox(width: 24),
+            Visibility(
+              visible: numOptions > 1,
+              child: GestureDetector(
+                child: const Icon(
+                  Icons.horizontal_rule_rounded,
+                  size: 32,
+                  color: BrandedColors.black500
+                ),
+                onTap: () {
+                  numOptions -= 1;
+                  optionTitles.removeLast();
+                  questionCreatorProvider.updateQuestion();
+                },
+              ),
+            )
+          ],
+        )
       ],
     );
   }
