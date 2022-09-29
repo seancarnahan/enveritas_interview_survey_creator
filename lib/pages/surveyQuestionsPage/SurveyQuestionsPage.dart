@@ -42,8 +42,6 @@ class SurveyQuestionsPage extends StatelessWidget {
           builder: (context, surveyProvider, child) {
             Survey survey = surveyProvider.getSurvey()!;
             Widget questionsWidget = survey.questions.isEmpty ? const SurveyNoQuestions() : SurveyQuestions(survey: survey);
-            print('SurveyQuestionsPage');
-            print('num Survey Questions: ${survey.questions.length}');
 
             return Column(
               children: [

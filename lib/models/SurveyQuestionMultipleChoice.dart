@@ -16,6 +16,9 @@ class SurveyQuestionMultipleChoice implements SurveyQuestionable {
   String title;
 
   @override
+  int rank;
+
+  @override
   final SurveyQuestionType type;
 
   final QuestionCreatorProvider questionCreatorProvider;
@@ -24,7 +27,7 @@ class SurveyQuestionMultipleChoice implements SurveyQuestionable {
 
   List<String> optionTitles = List.generate(2, ((index) => 'Answer Choice $index...'));
 
-  SurveyQuestionMultipleChoice(this.title, this.type, this.questionCreatorProvider);
+  SurveyQuestionMultipleChoice(this.title, this.rank, this.type, this.questionCreatorProvider);
 
   @override
   Widget getForm() {
@@ -57,6 +60,7 @@ class SurveyQuestionMultipleChoice implements SurveyQuestionable {
   Widget getPreview() {
     return PreviewQuestionContainer(
       title: title,
+      rank: rank,
       content: EnvRadioButtonController(
         configs: List.generate(numOptions, (index) => EnvRadioButtonConfig(
             label: optionTitles[index],

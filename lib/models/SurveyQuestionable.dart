@@ -4,10 +4,12 @@ import 'SurveyQuestionType.dart';
 
 abstract class SurveyQuestionable {
   String title;
+  int rank;
   final SurveyQuestionType type;
 
   SurveyQuestionable({
     required this.title,
+    required this.rank,
     required this.type
   });
 

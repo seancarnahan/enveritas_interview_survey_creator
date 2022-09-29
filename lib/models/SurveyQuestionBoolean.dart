@@ -11,9 +11,12 @@ class SurveyQuestionBoolean implements SurveyQuestionable {
   String title;
 
   @override
+  int rank;
+
+  @override
   final SurveyQuestionType type;
 
-  SurveyQuestionBoolean(this.title, this.type);
+  SurveyQuestionBoolean(this.title, this.rank, this.type);
 
   @override
   Widget getForm() {
@@ -24,6 +27,7 @@ class SurveyQuestionBoolean implements SurveyQuestionable {
   Widget getPreview() {
     return PreviewQuestionContainer(
       title: title,
+      rank: rank,
       content: EnvRadioButtonController(
         configs: [
           EnvRadioButtonConfig(

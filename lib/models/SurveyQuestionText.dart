@@ -12,9 +12,12 @@ class SurveyQuestionText implements SurveyQuestionable {
   String title;
 
   @override
+  int rank;
+
+  @override
   final SurveyQuestionType type;
 
-  SurveyQuestionText(this.title, this.type);
+  SurveyQuestionText(this.title, this.rank, this.type);
 
   @override
   Widget getForm() {
@@ -25,6 +28,7 @@ class SurveyQuestionText implements SurveyQuestionable {
   Widget getPreview() {
     return PreviewQuestionContainer(
       title: title,
+      rank: rank,
       content: EnvTextField(
         config: EnvTextFieldConfig(
           maxLength: 500,

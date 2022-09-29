@@ -4,7 +4,7 @@ import 'package:interview_survey_creator/styles/BrandedTextStyle.dart';
 
 class PreviewQuestionTitle extends StatelessWidget {
   final String title;
-  final double rank;
+  final int rank;
   const PreviewQuestionTitle({
     Key? key,
     required this.title,
