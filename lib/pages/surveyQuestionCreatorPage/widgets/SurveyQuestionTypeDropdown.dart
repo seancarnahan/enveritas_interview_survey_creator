@@ -12,7 +12,7 @@ class SurveyQuestionTypeDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<QuestionCreatorProvider>(
-      builder: (context, _questionCreatorProvider, child) {
+      builder: (context, questionCreatorProvider, child) {
         return Row(
           children: [
             Expanded(
@@ -25,7 +25,7 @@ class SurveyQuestionTypeDropdown extends StatelessWidget {
                     'Number': SurveyQuestionType.Number,
                     'Multiple Choice': SurveyQuestionType.MultipleChoice,
                   },
-                  onChanged: (val) => _questionCreatorProvider.setNewSurveyQuestion(val)
+                  onChanged: (val) => questionCreatorProvider.setNewSurveyQuestion(val)
                 )
               )
             ),

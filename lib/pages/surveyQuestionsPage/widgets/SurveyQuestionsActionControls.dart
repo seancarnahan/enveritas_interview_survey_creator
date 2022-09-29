@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interview_survey_creator/constants/DesktopContstraints.dart';
 import 'package:interview_survey_creator/models/Survey.dart';
-import 'package:interview_survey_creator/models/SurveyQuestionable.dart';
-import 'package:interview_survey_creator/models/SurveyQuestionType.dart';
 import 'package:interview_survey_creator/pages/surveyQuestionsPage/widgets/SurveyQuestionsActionControl.dart';
 import 'package:interview_survey_creator/services/NavigationService.dart';
 import 'package:interview_survey_creator/styles/BrandedColors.dart';

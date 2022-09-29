@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interview_survey_creator/pages/surveyQuestionCreatorPage/widgets/PreviewQuestionTitle.dart';
-import 'package:interview_survey_creator/services/SurveyService.dart';
+import 'package:interview_survey_creator/providers/SurveyProvider.dart';
 import 'package:interview_survey_creator/styles/BrandedColors.dart';
 
 class PreviewQuestionContainer extends StatelessWidget {
@@ -19,8 +19,8 @@ class PreviewQuestionContainer extends StatelessWidget {
       children: [
         PreviewQuestionTitle(
           title: title,
-          rank: SurveyService().survey?.questions != null ?
-            SurveyService().survey!.questions.length + 1 : 1
+          rank: SurveyProvider().survey?.questions != null ?
+            SurveyProvider().survey!.questions.length + 1 : 1
         ),
         const SizedBox(height: 16),
         content,

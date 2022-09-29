@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:interview_survey_creator/models/Survey.dart';
 import 'package:interview_survey_creator/services/NavigationService.dart';
-import 'package:interview_survey_creator/services/SurveyService.dart';
+import 'package:interview_survey_creator/providers/SurveyProvider.dart';
 import 'package:interview_survey_creator/styles/BrandedColors.dart';
 import 'package:interview_survey_creator/widgets/scaffold/EnvScaffold.dart';
 import 'package:interview_survey_creator/widgets/shared/SurveyNoQuestions.dart';
@@ -16,10 +16,10 @@ class SurveyQuestionsEditPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Redirect back if survey is not set in Singleton
-    if (SurveyService().getSurvey() == null) {
+    if (SurveyProvider().getSurvey() == null) {
       NavigationService.navigateBack(context);
     }
-    Survey survey = SurveyService().getSurvey()!;
+    Survey survey = SurveyProvider().getSurvey()!;
     Widget questionsWidget = survey.questions.isEmpty ? const SurveyNoQuestions() : Text('TODO Draggable questions');
 
     return EnvScaffold(
