@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:interview_survey_creator/models/SurveyQuestionType.dart';
-import 'package:interview_survey_creator/pages/surveyQuestionCreatorPage/widgets/PreviewQuestionContainer.dart';
+import 'package:interview_survey_creator/pages/surveyQuestionsPage/widgets/previewView/widgets/PreviewQuestionContainer.dart';
 import 'package:interview_survey_creator/services/KeyboardService.dart';
 import 'package:interview_survey_creator/widgets/controls/EnvTextField.dart';
 import 'package:interview_survey_creator/widgets/controls/models/EnvTextFieldConfig.dart';
@@ -14,10 +13,9 @@ class SurveyQuestionText implements SurveyQuestionable {
   @override
   int rank;
 
-  @override
-  final SurveyQuestionType type;
+  final SurveyQuestionType type = SurveyQuestionType.MultipleChoice;
 
-  SurveyQuestionText(this.title, this.rank, this.type);
+  SurveyQuestionText(this.title, this.rank);
 
   @override
   Widget getForm() {

@@ -39,7 +39,7 @@ class EnvButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(8)
           )),
         ),
-        child: Text(buttonText, style: BrandedTextStyle.b3Label(textColor)),
+        child: Text(buttonText, style: BrandedTextStyle.b3LabelBold(textColor)),
       )
     );
   }

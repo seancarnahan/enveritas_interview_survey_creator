@@ -1,16 +1,14 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: constant_identifier_names
 
-import 'SurveyQuestionType.dart';
+import 'package:flutter/material.dart';
 
 abstract class SurveyQuestionable {
   String title;
   int rank;
-  final SurveyQuestionType type;
 
   SurveyQuestionable({
     required this.title,
     required this.rank,
-    required this.type
   });
 
   // Fetch extra information from the user needed to create the question
@@ -20,3 +18,11 @@ abstract class SurveyQuestionable {
   Widget getPreview();
 
 }
+
+enum SurveyQuestionType {
+  Text,
+  Boolean,
+  Number,
+  MultipleChoice
+}
+

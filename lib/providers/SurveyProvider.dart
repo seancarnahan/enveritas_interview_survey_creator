@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:interview_survey_creator/models/Survey.dart';
 import 'package:interview_survey_creator/models/SurveyQuestionable.dart';
@@ -10,7 +12,9 @@ import 'package:interview_survey_creator/models/SurveyQuestionable.dart';
  * Both SurveyQuestionsEditPage and SurveyQuestionCreatorPage are below the declaration of this provider in widget tree
  */
 class SurveyProvider extends ChangeNotifier {
-  Survey? survey;
+  Survey? survey; // TODO remove optional
+  bool isCreatingQuestion = false;
+
   static final SurveyProvider _surveyProvider = SurveyProvider._internal();
 
   SurveyProvider._internal();
@@ -28,18 +32,38 @@ class SurveyProvider extends ChangeNotifier {
     return survey;
   }
 
+  void updateIsCreatingQuestion(bool isCreating) {
+    isCreatingQuestion = isCreating;
+    notifyListeners();
+  }
+
   void addQuestion(SurveyQuestionable question) {
     if (survey != null) {
       survey!.questions.add(question);
-      notifyListeners();
     }
   }
 
   void removeQuestionByRank(int rank) {
-
+    if (survey != null) {
+      survey!.questions.removeWhere((question) => question.rank == rank);
+    }
+    _assignRanks();
+    notifyListeners();
   }
 
-  void reorderQuestion(int currRank, int newRank) {
+  void reorderQuestions(int oldQuestionIndex, int newQuestionIndex) {
+    if (survey != null) {
+      List<SurveyQuestionable> questions = survey!.questions;
+      final SurveyQuestionable question = questions.removeAt(oldQuestionIndex);
+      questions.insert(newQuestionIndex, question);
+      _assignRanks();
+      notifyListeners();
+    }
+  }
 
-  } 
+  void _assignRanks() {
+    for (int i = 0; i < survey!.questions.length; i++) {
+      survey!.questions[i].rank = i + 1;
+    }
+  }
 }

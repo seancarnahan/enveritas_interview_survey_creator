@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:interview_survey_creator/widgets/scaffold/EnvTabbar.dart';
+import 'package:interview_survey_creator/widgets/scaffold/models/EnvTabbarItemConfig.dart';
 import 'package:interview_survey_creator/widgets/button/EnvGestureDetector.dart';
 import 'package:interview_survey_creator/models/Survey.dart';
 import 'package:interview_survey_creator/services/NavigationService.dart';
@@ -8,10 +10,9 @@ import 'package:interview_survey_creator/styles/BrandedColors.dart';
 import 'package:interview_survey_creator/widgets/scaffold/EnvScaffold.dart';
 import 'package:interview_survey_creator/widgets/scaffold/models/ScaffoldActionIcons.dart';
 
-import '../../widgets/shared/SurveyNoQuestions.dart';
-import 'widgets/SurveyQuestions.dart';
-import 'widgets/SurveyQuestionsActionControls.dart';
 import 'widgets/SurveyQuestionsHeaderCard.dart';
+import 'widgets/editView/EditView.dart';
+import 'widgets/previewView/PreviewView.dart';
 
 class SurveyQuestionsPage extends StatelessWidget {
   const SurveyQuestionsPage({Key? key}) : super(key: key);
@@ -31,7 +32,7 @@ class SurveyQuestionsPage extends StatelessWidget {
         topLeftActionIcon: ScaffoldActionsIcons.BackArrow,
         topRightAction: EnvGestureDetector(
           child: const Icon(
-            Icons.import_export,
+            Icons.import_export, // TODO change icon
             size: 32,
             color: BrandedColors.primary500
           ),
@@ -42,14 +43,22 @@ class SurveyQuestionsPage extends StatelessWidget {
         pageContent: Consumer<SurveyProvider>(
           builder: (context, surveyProvider, child) {
             Survey survey = surveyProvider.getSurvey()!;
-            Widget questionsWidget = survey.questions.isEmpty ? const SurveyNoQuestions() : SurveyQuestions(survey: survey);
-
             return Column(
               children: [
                 SurveyQuestionsHeaderCard(survey: survey),
                 const SizedBox(height: 32),
-                SurveyQuestionsActionControls(survey: survey),
-                questionsWidget
+                EnvTabbar(
+                  tabs: [
+                    EnvTabbarItemConfig(
+                      'Preview',
+                      PreviewView(surveyProvider: surveyProvider)
+                    ),
+                    EnvTabbarItemConfig(
+                      'Edit',
+                      EditView(surveyProvider: surveyProvider)
+                    ),
+                  ]
+                )
               ],
             );
           }

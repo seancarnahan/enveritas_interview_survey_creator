@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:interview_survey_creator/models/SurveyQuestionType.dart';
-import 'package:interview_survey_creator/pages/surveyQuestionCreatorPage/widgets/PreviewQuestionContainer.dart';
+import 'package:interview_survey_creator/pages/surveyQuestionsPage/widgets/previewView/widgets/PreviewQuestionContainer.dart';
 import 'package:interview_survey_creator/widgets/controls/EnvRadioButtonController.dart';
 
 import '../widgets/controls/models/EnvRadioButtonConfig.dart';
@@ -13,10 +12,9 @@ class SurveyQuestionBoolean implements SurveyQuestionable {
   @override
   int rank;
 
-  @override
-  final SurveyQuestionType type;
+  final SurveyQuestionType type = SurveyQuestionType.Boolean;
 
-  SurveyQuestionBoolean(this.title, this.rank, this.type);
+  SurveyQuestionBoolean(this.title, this.rank);
 
   @override
   Widget getForm() {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:interview_survey_creator/models/SurveyQuestionType.dart';
-import 'package:interview_survey_creator/pages/surveyQuestionCreatorPage/providers/QuestionCreatorProvider.dart';
-import 'package:interview_survey_creator/pages/surveyQuestionCreatorPage/widgets/PreviewQuestionContainer.dart';
+import 'package:interview_survey_creator/providers/QuestionCreatorProvider.dart';
+import 'package:interview_survey_creator/pages/surveyQuestionsPage/widgets/previewView/widgets/PreviewQuestionContainer.dart';
 import 'package:interview_survey_creator/services/KeyboardService.dart';
 import 'package:interview_survey_creator/styles/BrandedColors.dart';
 import 'package:interview_survey_creator/widgets/button/EnvGestureDetector.dart';
@@ -19,8 +18,7 @@ class SurveyQuestionMultipleChoice implements SurveyQuestionable {
   @override
   int rank;
 
-  @override
-  final SurveyQuestionType type;
+  final SurveyQuestionType type = SurveyQuestionType.MultipleChoice;
 
   final QuestionCreatorProvider questionCreatorProvider;
 
@@ -28,7 +26,7 @@ class SurveyQuestionMultipleChoice implements SurveyQuestionable {
 
   List<String> optionTitles = List.generate(2, ((index) => 'Answer Choice $index...'));
 
-  SurveyQuestionMultipleChoice(this.title, this.rank, this.type, this.questionCreatorProvider);
+  SurveyQuestionMultipleChoice(this.title, this.rank, this.questionCreatorProvider);
 
   @override
   Widget getForm() {

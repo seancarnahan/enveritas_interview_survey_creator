@@ -3,14 +3,13 @@ import 'package:interview_survey_creator/models/SurveyQuestionBoolean.dart';
 import 'package:interview_survey_creator/models/SurveyQuestionMultipleChoice.dart';
 import 'package:interview_survey_creator/models/SurveyQuestionNumber.dart';
 import 'package:interview_survey_creator/models/SurveyQuestionText.dart';
-import 'package:interview_survey_creator/models/SurveyQuestionType.dart';
 import 'package:interview_survey_creator/models/SurveyQuestionable.dart';
 import 'package:interview_survey_creator/providers/SurveyProvider.dart';
 
 class QuestionCreatorProvider extends ChangeNotifier {
   SurveyQuestionable question;
 
-  QuestionCreatorProvider(): question = SurveyQuestionText('', 1, SurveyQuestionType.Text) {
+  QuestionCreatorProvider(): question = SurveyQuestionText('', 1) {
     setNewSurveyQuestion(SurveyQuestionType.Text);
   }
 
@@ -18,19 +17,19 @@ class QuestionCreatorProvider extends ChangeNotifier {
     int rank = _getRank();
     switch (type) {
       case SurveyQuestionType.Text:
-        question = SurveyQuestionText(question.title, rank, SurveyQuestionType.Text);
+        question = SurveyQuestionText(question.title, rank);
         break;
       case SurveyQuestionType.Boolean:
-        question = SurveyQuestionBoolean(question.title, rank, SurveyQuestionType.Boolean);
+        question = SurveyQuestionBoolean(question.title, rank);
         break;
       case SurveyQuestionType.Number:
-        question = SurveyQuestionNumber(question.title, rank, SurveyQuestionType.Number);
+        question = SurveyQuestionNumber(question.title, rank);
         break;
       case SurveyQuestionType.MultipleChoice:
-        question = SurveyQuestionMultipleChoice(question.title, rank, SurveyQuestionType.MultipleChoice, this);
+        question = SurveyQuestionMultipleChoice(question.title, rank, this);
         break;
       default:
-        question = SurveyQuestionText(question.title, rank, SurveyQuestionType.Text);
+        question = SurveyQuestionText(question.title, rank);
     }
     notifyListeners();
   }

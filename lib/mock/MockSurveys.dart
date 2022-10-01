@@ -1,10 +1,34 @@
 import 'package:interview_survey_creator/models/Survey.dart';
+import 'package:interview_survey_creator/models/SurveyQuestionBoolean.dart';
+import 'package:interview_survey_creator/models/SurveyQuestionNumber.dart';
+import 'package:interview_survey_creator/models/SurveyQuestionText.dart';
 
 List<Survey> mockSurveys = [
   Survey(
-    name: 'Intro Survey',
+    name: 'Color Survey',
     languages: ['English', 'Spanish', 'Vietnamese'],
-    questions: []
+    questions: [
+      SurveyQuestionText(
+        'What is your favorite color?',
+        1
+      ),
+      SurveyQuestionBoolean(
+        'Is this statement true: You like the color red?',
+        2
+      ),
+      SurveyQuestionNumber(
+        'How many colors do you like?',
+        3
+      ),
+      SurveyQuestionText(
+        'What is your leave favorite color?',
+        4
+      ),
+      SurveyQuestionBoolean(
+        'Is this statement true: You like the color green?',
+        5
+      )
+    ]
   ),
   Survey(
     name: 'Satisfaction Survey',

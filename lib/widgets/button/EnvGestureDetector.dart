@@ -15,6 +15,7 @@ class EnvGestureDetector extends StatelessWidget {
     return MouseRegion(
       cursor: SystemMouseCursors.click,
       child: InkWell(
+        borderRadius: BorderRadius.circular(25.0),
         splashColor: BrandedColors.secondary500,
         onTap:() => onTap(),
         child: child,
