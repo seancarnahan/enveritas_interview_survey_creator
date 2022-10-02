@@ -10,6 +10,7 @@ class EnvTextFieldConfig {
   final String initialText;
   final String hintText;
   final TextStyle? inputTextStyle;
+  final bool autoFocus;
   final List<TextInputFormatter>? additionalFormatter;
   
   EnvTextFieldConfig({
@@ -20,6 +21,7 @@ class EnvTextFieldConfig {
     this.initialText = '',
     this.hintText = '',
     this.inputTextStyle,
+    this.autoFocus=false,
     this.additionalFormatter
   });
 }

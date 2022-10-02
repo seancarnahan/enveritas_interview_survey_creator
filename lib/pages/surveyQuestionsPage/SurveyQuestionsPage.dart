@@ -45,7 +45,7 @@ class SurveyQuestionsPage extends StatelessWidget {
             Survey survey = surveyProvider.getSurvey()!;
             return Column(
               children: [
-                SurveyQuestionsHeaderCard(survey: survey),
+                SurveyQuestionsHeaderCard(surveyProvider: surveyProvider),
                 const SizedBox(height: 32),
                 EnvTabbar(
                   tabs: [

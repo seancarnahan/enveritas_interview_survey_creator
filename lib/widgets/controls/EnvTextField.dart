@@ -27,6 +27,7 @@ class EnvTextField extends StatelessWidget {
       textAlignVertical: TextAlignVertical.center,
       cursorColor: BrandedColors.primary500,
       cursorHeight: 20,
+      autofocus: config.autoFocus,
       maxLength: config.maxLength,
       decoration: InputDecoration(
         filled: true,

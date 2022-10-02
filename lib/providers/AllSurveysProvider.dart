@@ -19,7 +19,7 @@ class AllSurveysProvider extends ChangeNotifier {
   }
 
   void createNewSurvey() {
-    Survey survey = Survey(name: 'My Survey', languages: [], questions: []);
+    Survey survey = Survey(name: 'My New Survey', languages: ['English'], questions: []);
     surveys.insert(0, survey);
     SurveyProvider().setSurvey(survey);
     notifyListeners();

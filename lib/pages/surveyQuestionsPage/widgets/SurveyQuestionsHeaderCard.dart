@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:interview_survey_creator/models/Survey.dart';
+import 'package:interview_survey_creator/providers/SurveyProvider.dart';
 import 'package:interview_survey_creator/styles/BrandedColors.dart';
 import 'package:interview_survey_creator/styles/BrandedTextStyle.dart';
 import 'package:interview_survey_creator/widgets/cards/EnvCard.dart';
 
+import 'SurveyQuestionsSurveyName.dart';
+
 class SurveyQuestionsHeaderCard extends StatelessWidget {
-  final Survey survey;
-  const SurveyQuestionsHeaderCard({Key? key, required this.survey}) : super(key: key);
+  final SurveyProvider surveyProvider;
+  const SurveyQuestionsHeaderCard({Key? key, required this.surveyProvider}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    String name = survey.name;
+    Survey survey = surveyProvider.survey!;
     String numQuestions = '${survey.questions.length} Questions';
     String languages = survey.languages.join(', ');
 
@@ -23,7 +26,7 @@ class SurveyQuestionsHeaderCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(name, style: BrandedTextStyle.b1Reg(BrandedColors.primary500)),
+            SurveyQuestionSurveyName(surveyProvider: surveyProvider),
             const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
