@@ -60,7 +60,6 @@ class SurveyQuestionCreator extends StatelessWidget {
                     useAutoWidth: false,
                     onClick: () {
                       surveyProvider.addQuestion(questionCreatorProvider.question);
-                      surveyProvider.updateIsCreatingQuestion(false);
                     }
                   ),
                 ],

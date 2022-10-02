@@ -21,7 +21,7 @@ List<Survey> mockSurveys = [
         3
       ),
       SurveyQuestionText(
-        'What is your leave favorite color?',
+        'What is your least favorite color?',
         4
       ),
       SurveyQuestionBoolean(

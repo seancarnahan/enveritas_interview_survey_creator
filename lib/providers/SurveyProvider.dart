@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:interview_survey_creator/models/Survey.dart';
 import 'package:interview_survey_creator/models/SurveyQuestionable.dart';
+import 'package:interview_survey_creator/providers/AllSurveysProvider.dart';
 
 /*
  * Singleton and ChangeNotifier(Provider):
@@ -37,9 +38,28 @@ class SurveyProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void updateSurveyName(String newSurveyName) {
+    if (survey != null) {
+      survey!.name = newSurveyName;
+      _updateSurveysProvider();
+      notifyListeners();
+    }
+  }
+
+  void updateSurveyLanguages(List<String> languages) {
+
+    if (survey != null) {
+      survey!.languages = languages;
+      _updateSurveysProvider();
+      notifyListeners();
+    }
+  }
+
   void addQuestion(SurveyQuestionable question) {
     if (survey != null) {
       survey!.questions.add(question);
+      _updateSurveysProvider();
+      updateIsCreatingQuestion(false);
     }
   }
 
@@ -48,6 +68,7 @@ class SurveyProvider extends ChangeNotifier {
       survey!.questions.removeWhere((question) => question.rank == rank);
     }
     _assignRanks();
+    _updateSurveysProvider();
     notifyListeners();
   }
 
@@ -57,6 +78,7 @@ class SurveyProvider extends ChangeNotifier {
       final SurveyQuestionable question = questions.removeAt(oldQuestionIndex);
       questions.insert(newQuestionIndex, question);
       _assignRanks();
+      _updateSurveysProvider();
       notifyListeners();
     }
   }
@@ -65,5 +87,9 @@ class SurveyProvider extends ChangeNotifier {
     for (int i = 0; i < survey!.questions.length; i++) {
       survey!.questions[i].rank = i + 1;
     }
+  }
+
+  void _updateSurveysProvider() {
+    AllSurveysProvider().surveyUpdated();
   }
 }

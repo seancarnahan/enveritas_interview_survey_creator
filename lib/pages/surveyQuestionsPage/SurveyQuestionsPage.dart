@@ -32,7 +32,7 @@ class SurveyQuestionsPage extends StatelessWidget {
         topLeftActionIcon: ScaffoldActionsIcons.BackArrow,
         topRightAction: EnvGestureDetector(
           child: const Icon(
-            Icons.import_export, // TODO change icon
+            Icons.ios_share,
             size: 32,
             color: BrandedColors.primary500
           ),

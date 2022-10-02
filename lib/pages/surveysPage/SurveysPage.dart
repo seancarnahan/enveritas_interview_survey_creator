@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:interview_survey_creator/providers/AllSurveysProvider.dart';
+import 'package:interview_survey_creator/services/NavigationService.dart';
 import 'package:interview_survey_creator/styles/BrandedColors.dart';
 import 'package:interview_survey_creator/widgets/scaffold/EnvScaffold.dart';
 import 'package:interview_survey_creator/widgets/button/EnvGestureDetector.dart';
+import 'package:provider/provider.dart';
 
 import 'widgets/Searchbar.dart';
 import 'widgets/SurveyTiles.dart';
@@ -13,24 +16,31 @@ class SurveysPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return EnvScaffold(
-      topRightAction: EnvGestureDetector(
-        onTap: () => {
-          // TODO open modal to get survey name and exportable languages
-          // then route to Page
+    return ChangeNotifierProvider(
+      create: (_) => AllSurveysProvider(),
+      child: Consumer<AllSurveysProvider>(
+        builder: (context, allSurveysProvider, child) {
+          return EnvScaffold(
+            topRightAction: EnvGestureDetector(
+              onTap: () {
+                allSurveysProvider.createNewSurvey();
+                NavigationService.navigateToSurveyQuestionsPage(context);
+              },
+              child: const Icon(
+                Icons.add,
+                size: 32,
+                color: BrandedColors.black500,
+              ),
+            ),
+            pageContent: Column(
+                children: [
+                  const Searchbar(),
+                  const SizedBox(height: 32),
+                  SurveyTiles(surveys: allSurveysProvider.surveys)
+                ],
+              )
+          );
         },
-        child: const Icon(
-          Icons.add,
-          size: 32,
-          color: BrandedColors.black500,
-        ),
-      ),
-      pageContent: Column(
-        children: const [
-          Searchbar(),
-          SizedBox(height: 32),
-          SurveyTiles()
-        ],
       ),
     );
   }
